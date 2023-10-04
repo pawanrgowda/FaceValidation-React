@@ -1,0 +1,30 @@
+.d{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;  
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+  background-color: #dedefc;
+  position: sticky;
+  top: 8px;
+}
+.ul {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  gap: 20px;
+  margin-top: 10px;
+}
+.ul>li{
+  font-size: large;
+  color: rgb(0, 0, 0);
+}
+.logo{
+  width: 100px;
+}
+.maindiv{
+display: flex;
+justify-content: center;
+padding: 100px;
+}
