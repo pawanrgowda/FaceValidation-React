@@ -11,7 +11,7 @@ Currently, two official plugins are available:
 
 # FaceValidation-React
 
-This project is a demonstration of communication between a application and an API. The user is prompted with a file picker or a form in whihc he or she can drop two files and send request to the API, Use your own api which does the face validation in this case. The api will respond back with the Result and it will be displayed on the application.
+This project is a demonstration of communication between a application and an API. The user is prompted with a file picker or a form in which he or she can drop two files(images) and send request to the API, Use your own api which does the face validation in this case. The form automatically converts the dropped images to base 64 and sends request to the api. The api will respond back with the Result and it will be displayed on the application.
 As this is a prototype the file picker is not fully functional to take file inputs and send that request the API, instead you can use the form given below the filepicker.
 
 
