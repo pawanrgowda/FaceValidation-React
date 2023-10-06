@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import './consty.css'; 
 
-export default function conn() {
+export default function Conn() {
   const [documentImage, setDocumentImage] = useState(null);
   const [liveImage, setLiveImage] = useState(null);
   const [response, setResponse] = useState(null);
@@ -11,7 +12,7 @@ export default function conn() {
     if (file) {
       const reader = new FileReader();
       reader.onload = function () {
-        // Remove the data URI prefix cuz the json pattern doesnt match
+        // Remove the data URI prefix cuz the JSON pattern doesn't match
         const base64Data = reader.result.replace(/^data:image\/(jpeg|jpg);base64,/, '');
         setDocumentImage(base64Data);
       };
@@ -25,7 +26,7 @@ export default function conn() {
     if (file) {
       const reader = new FileReader();
       reader.onload = function () {
-        // Removeing the data URI prefix cuz the json pattern doesnt match
+        // Remove the data URI prefix cuz the JSON pattern doesn't match
         const base64Data = reader.result.replace(/^data:image\/(jpeg|jpg);base64,/, '');
         setLiveImage(base64Data);
       };
@@ -68,14 +69,31 @@ export default function conn() {
   }
 
   return (
-    <div>
-      <h1>Face Validation</h1>
-      <input type="file" accept="image/*" onChange={handleDocumentImageChange} />
-      <input type="file" accept="image/*" onChange={handleLiveImageChange} />
-      <button onClick={sendRequest}>Send Request</button>
-      
-      <h2>API Response:</h2>
-      {response ? <div>{JSON.stringify(response, null, 2)}</div> : <div>No response yet</div>}
-    </div>
+    <div className="container">
+    <h1 className="header">Face Validation</h1>
+    <label className="file-input1-label">
+      Choose Document Image
+      <input
+        type="file"
+        className="file-input1"
+        accept="image/*"
+        onChange={handleDocumentImageChange}
+      />
+    </label>
+    <label className="file-input2-label">
+      Choose Live Image
+      <input
+        type="file"
+        className="file-input2"
+        accept="image/*"
+        onChange={handleLiveImageChange}
+      />
+    </label>
+    <button className="send-button" onClick={sendRequest}>Send Request</button>
+    
+    <h2 className="api-response-header">API Response:</h2>
+    {response ? <div className="response-box">{JSON.stringify(response, null, 2)}</div> : <div className="no-response">No response yet</div>}
+  </div>
+  
   );
 }
