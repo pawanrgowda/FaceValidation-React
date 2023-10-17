@@ -18,7 +18,8 @@ In order for this to work, we must first create a react application which does w
 This allows us to use a react application inside a normal web application created using html and css. The web application is built to work as specified above.
 
 This flowcart illustrates the working flow of the application.
-<img width="2113" alt="React Proj (2)" src="https://github.com/pawanrgowda/FaceValidation-React/assets/70716509/abed7c07-4c2f-46b0-adee-8b8beb3ff10f">
+<img width="2113" alt="React Proj (1)" src="https://github.com/pawanrgowda/FaceValidation-React/assets/70716509/ffb7051b-7d83-4b29-b413-f51112ae6b8f">
+
 
 ## API Reference
 
