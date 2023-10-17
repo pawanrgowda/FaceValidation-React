@@ -11,13 +11,17 @@ Currently, two official plugins are available:
 
 # FaceValidation-React
 
-This project is a demonstration of communication between two different application running on the same server. This project contains a react application build inside a normal web application , the react application is build in such a way that it takes images as input(a filepicker). The images taken as input is sent to the web application via a URl, the images received by the web application can undergo any encoding or other functionality , in this case we are converting the images to base 64 and are sending that data via a request to a FaceMatch API (you must use your own api, api is not provided in the code). The web application waits for the response from the API and once it has received the response, it sends the response message to the react application/component to be displayed there, the react application is buit in such a way that it is already waiting for the responce from the web aplication.
+This project serves as a practical demonstration of how two distinct applications can effectively communicate with each other while residing on the same server. The setup comprises a web application that encapsulates a React-based user interface. The React application has been meticulously designed to ingest images via a file picker. These selected images are subsequently relayed to the web application through URLs.
 
-In order for this to work, we must first create a react application which does whatever functionality is required, once this is done we create a production build of that application, we then use this build file in the web application, we use the script, link tags in the build file to display the UI of the react application in the web application.
+Within the web application, the received images can undergo various processing steps, including but not limited to encoding or any other desired functionality. In this particular instance, the images are converted into base64 format. Once the image data is prepared, the web application dispatches a request to a FaceMatch API. It's important to note that the specific API to be used should be provided externally, as it's not included in the code.
 
-This allows us to use a react application inside a normal web application created using html and css. The web application is built to work as specified above.
+The web application remains in a listening state, patiently awaiting a response from the FaceMatch API. Upon receiving the response, it promptly forwards the relevant message to the React application or component, which is already poised to display the information.
 
-This flowcart illustrates the working flow of the application.
+To enable this seamless interaction, the process involves first creating a React application that fulfills the necessary functionality requirements. After this phase is complete, a production build of the React application is generated. Subsequently, this build file is integrated into the web application using script and link tags. These tags are employed to seamlessly embed the React UI within the confines of the web application, thereby facilitating the cohesive operation of both applications.
+
+In essence, this approach allows for the incorporation of a React-based application within a standard web application developed using HTML and CSS. The web application, as outlined, is meticulously crafted to execute the specified functionalities as described above.
+
+The following flowcart illustrates the working flow of the application.
 <img width="2113" alt="React Proj (1)" src="https://github.com/pawanrgowda/FaceValidation-React/assets/70716509/ffb7051b-7d83-4b29-b413-f51112ae6b8f">
 
 
