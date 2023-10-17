@@ -1,5 +1,9 @@
 # FaceValidation-React
 
+
+#### Project Overview:
+
+
 This project serves as a practical demonstration of how two distinct applications can effectively communicate with each other while residing on the same server. The setup comprises a web application that encapsulates a React-based user interface. The React application has been meticulously designed to ingest images via a file picker. These selected images are subsequently relayed to the web application through URLs.
 
 Within the web application, the received images can undergo various processing steps, including but not limited to encoding or any other desired functionality. In this particular instance, the images are converted into base64 format. Once the image data is prepared, the web application dispatches a request to a FaceMatch API. It's important to note that the specific API to be used should be provided externally, as it's not included in the code.
@@ -10,10 +14,6 @@ To enable this seamless interaction, the process involves first creating a React
 
 In essence, this approach allows for the incorporation of a React-based application within a standard web application developed using HTML and CSS. The web application, as outlined, is meticulously crafted to execute the specified functionalities as described above.
 
-
-#### Project Overview:
-
-This project showcases the seamless communication between two distinct applications running on the same server. It comprises a web application housing a React-based user interface. The React application is designed to accept image inputs via a file picker. These selected images are then transmitted to the web application through URLs.
 
 #### Technologies Used:
 
