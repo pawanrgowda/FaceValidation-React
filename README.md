@@ -1,14 +1,3 @@
-# React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-
-
 # FaceValidation-React
 
 This project serves as a practical demonstration of how two distinct applications can effectively communicate with each other while residing on the same server. The setup comprises a web application that encapsulates a React-based user interface. The React application has been meticulously designed to ingest images via a file picker. These selected images are subsequently relayed to the web application through URLs.
