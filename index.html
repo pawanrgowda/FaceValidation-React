@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parent application</title>
+  <script defer="defer" src="build/static/js/main.a12ff21b.js"></script><link href="build/static/css/main.650fb207.css" rel="stylesheet">
+</head>
+<body class="body">
+  <div class='d'>
+    <img class="logo" src="./int logo.png" alt="logo">
+    <ul class='ul'>
+      <li>Home</li>
+      <li>About</li>
+      <li>Contact us</li>
+    </ul>
+  </div>
+  <div id="root"></div>
+  <div class="main">
+    <div class="butn">
+      <button id="retrieveBase64Button">Retrieve Base64 Data</button>
+    </div>
+    <img id="documentImage" alt="Document" style="display: none;" />
+    <img id="liveImage" alt="Live Image" style="display: none;" />
+    <button id="sendRequestButton" style="display: none;">Send Request</button>
+    <div id="responseMessage" class="response-box"></div>
+    <script>
+      let base64Images = null;
+  
+      window.addEventListener("message", function (event) {
+        if (event.data && event.data.type === "base64Images") {
+          base64Images = event.data.data;
+          document.getElementById("retrieveBase64Button").addEventListener("click", () => {
+            console.log("Received base64Images data:", base64Images);
+  
+            const documentImage = document.getElementById("documentImage");
+            const liveImage = document.getElementById("liveImage");
+            documentImage.src = base64Images[0].url;
+            liveImage.src = base64Images[1].url;
+            documentImage.style.display = "block";
+            liveImage.style.display = "block";
+            const sendRequestButton = document.getElementById("sendRequestButton");
+            sendRequestButton.style.display = "block";
+          }); 
+  
+          const sendRequestButton = document.getElementById("sendRequestButton");
+          sendRequestButton.addEventListener("click", async () => {
+            try {
+              const documentImageFile = await fetch(base64Images[0].url).then(response => response.blob());
+              const liveImageFile = await fetch(base64Images[1].url).then(response => response.blob());
+  
+              const readerDocument = new FileReader();
+              const readerLiveImage = new FileReader();
+  
+              readerDocument.onload = async () => {
+                readerLiveImage.onload = async () => {
+                  const documentBase64 = readerDocument.result.replace(/^data:image\/(jpeg|jpg);base64,/, '');
+                  const liveImageBase64 = readerLiveImage.result.replace(/^data:image\/(jpeg|jpg);base64,/, '');
+  
+                  // creatin json
+                  const requestData = {
+                    document: documentBase64,
+                    liveImage: liveImageBase64,
+                  };
+                  const apiUrl = "http://10.10.30.90:1123/face/faceValidation";
+                  fetch(apiUrl, {
+                    method: "POST",
+                    headers: {
+                      "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(requestData),
+                  })
+                  .then(response => response.json())
+                  .then(responseJson => {
+                    // this sends the api response to the react appli
+                    window.postMessage({ type: "apiResponse", responseData: responseJson }, "*");
+                  })
+                  .catch(error => {
+                    console.error("Error sending request:", error);
+                  });
+                };
+                readerLiveImage.readAsDataURL(liveImageFile);
+              };
+  
+              readerDocument.readAsDataURL(documentImageFile);
+            } catch (error) {
+              console.error("Error sending request:", error);
+            }
+          });
+        }
+      });
+    </script>
+  </div>
+</body>
+<link rel="stylesheet" href="stylee.css">
+</html>

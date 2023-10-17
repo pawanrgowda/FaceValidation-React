@@ -1,0 +1,70 @@
+.body{
+  background-color: #f3eaea;
+}
+#root{
+    display: flex;
+    width: 550px;
+    margin: auto;
+}
+#documentImage{
+    height: 100px;
+    margin: 10px;
+} 
+#liveImage{
+    height: 100px;
+    margin: 10px;
+}
+.response-box {
+    padding: 10px;
+    margin-top: 10px;
+    white-space: pre-wrap;
+}
+.no-response {
+    margin-top: 10px;
+}
+.butn{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+/* style for the navbar in web app*/
+.d{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;  
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+    background-color: #dedefc;
+    position: sticky;
+    top: 8px;
+    margin-bottom: 30px;
+  }
+  .ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+    margin-top: 10px;
+  }
+  .ul>li{
+    font-size: large;
+    color: rgb(44, 44, 44);
+  }
+  .logo{
+    width: 100px;
+  }
+  .maindiv{
+  display: flex;
+  justify-content: center;
+  padding: 100px;
+  }
+  /* end */
+  .main{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  .doc{
+    display: flex;
+  }
