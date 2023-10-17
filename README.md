@@ -11,10 +11,14 @@ Currently, two official plugins are available:
 
 # FaceValidation-React
 
-This project is a demonstration of communication between a application and an API. The user is prompted with a file picker or a form in which he or she can drop two files(images) and send request to the API, Use your own api which does the face validation in this case. The form automatically converts the dropped images to base 64 and sends request to the api. The api will respond back with the Result and it will be displayed on the application.
-As this is a prototype the file picker is not fully functional to take file inputs and send that request to the API, instead you can use the form given below the filepicker.
+This project is a demonstration of communication between two diffrent application running on a same server. This project contains a react application build inside a normal web application , the react application is build in such a way that it takes images as input(a filepicker). The images taken as input is sent to the web application via a URl, the images received by the web application can undergo any encoding or other functionality , in this case we are converting the images to base 64 and are sending that data via a request to a FaceMatch API (you must use your own api, api is not provided in the code). The web application waits for the response from the API and once it has received the response, it sends the response message to the react application/component to be displayed there, the react application is buit in such a way that it is already waiting for the responce from the web aplication.
 
+In order for this to work, we must first create a react application which does whatever functionality is required, once this is done we create a production build of that application, we then use this build file in the web application, we use the script, link tags in the build file to display the UI of the react application in the web application.
 
+This allows us to use a react application inside a normal web application created using html and css. The web application is built to work as specified above.
+
+This flowcart illustrates the working flow of the application.
+<img width="2113" alt="React Proj (2)" src="https://github.com/pawanrgowda/FaceValidation-React/assets/70716509/abed7c07-4c2f-46b0-adee-8b8beb3ff10f">
 
 ## API Reference
 
